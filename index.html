@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Father and Son Story</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="carousel-container" id="carousel">
+    <div class="story">
+        <img src="images/title.png" alt="Storyboard title" />
+        <div class="description">By Christopher Vaccaro</div>
+      </div>
+    <div class="story">
+      <img src="images/1.png" alt="Storyboard 1" />
+      <div class="description">Early morning light spills into the room as a father and his young son share a peaceful moment, still wrapped in sleep. It’s a quiet pause before the excitement of the day ahead—one filled with play, laughter, and time together.</div>
+    </div>
+    <div class="story">
+      <img src="images/2.png" alt="Storyboard 2" />
+      <div class="description">With the morning sun streaming through the window, a father makes breakfast while his son watches with eager eyes. The sizzle of eggs and the smell of toast fill the kitchen—the perfect start to their day of adventures.</div>
+    </div>
+    <div class="story">
+      <img src="images/3.png" alt="Storyboard 3" />
+      <div class="description">At the playground, the father gives his son a big push on the swing, both of them smiling wide under the clear blue sky. The boy’s laughter fills the air, soaring higher with each swing as their perfect day continues.</div>
+    </div>
+    <div class="story">
+      <img src="images/4.png" alt="Storyboard 4" />
+      <div class="description">The wind picked up just right as the boy took off running, gripping the string of his colorful kite. His father followed closely behind, smiling with pride. With every step, the kite soared higher—and so did their laughter.</div>
+    </div>
+    <div class="story">
+      <img src="images/5.png" alt="Storyboard 5" />
+      <div class="description">After a long day of playing, exploring, and laughter, the father and son took a well-earned break on a park bench. With ice cream cones in hand and smiles on their faces, they shared one last treat before heading home—soaking in the sunshine and each other's company.</div>
+    </div>
+    <div class="story">
+      <img src="images/6.png" alt="Storyboard 6" />
+      <div class="description">Hand in hand, they walked toward the pet store, the boy's eyes wide with curiosity. He didn't know it yet, but today would be the day he'd meet a tiny new friend who'd change everything.</div>
+    </div>
+    <div class="story">
+      <img src="images/7.png" alt="Storyboard 7" />
+      <div class="description">Later that day, they stopped at the pet store 'just to look'—but the moment the little boy saw the kittens, especially the tiny black one curled up in the corner, his heart was set. One look was all it took to know a new friend was coming home.</div>
+    </div>
+    <div class="story">
+      <img src="images/8.png" alt="Storyboard 8" />
+      <div class="description">Back at home, the boy and his new kitten became fast friends. With a ball of yarn and a heart full of excitement, he played on the floor while Dad watched nearby, smiling as their bond began to grow right before his eyes.</div>
+    </div>
+    <div class="story">
+        <img src="images/9.png" alt="Storyboard 9" />
+        <div class="description">As the evening settled in, the father and son sat down to enjoy a warm meal together. Beneath the table, their new kitten crunched contentedly on its own dinner—three hearts full, three bellies fuller, all under one roof.</div>
+      </div>
+      <div class="story">
+        <img src="images/10.png" alt="Storyboard 10" />
+        <div class="description">As night fell, the little boy curled up in bed with his new kitten snuggled close. With his blanket in hand and pacifier in place, he drifted off into dreams, the soft purring of his furry friend keeping him safe and warm through the night.</div>
+      </div>
+
+  </div>
+
+  <div class="nav">
+    <button id="prev">←</button>
+    <button id="next">→</button>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+
+    next.addEventListener('click', () => {
+      carousel.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    });
+
+    prev.addEventListener('click', () => {
+      carousel.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
