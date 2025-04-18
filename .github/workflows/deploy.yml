@@ -28,7 +28,7 @@ jobs:
 
           # — what to upload and where
           local-dir:  ./                         # your site root in the repo
-          server-dir: public_html/projects/father-son-story-app/               # GoDaddy’s webroot; must end with a slash :contentReference[oaicite:3]{index=3}
+          server-dir: projects/father-son-story-app/               # GoDaddy’s webroot; must end with a slash :contentReference[oaicite:3]{index=3}
 
           # — debugging
           log-level: standard                    # minimal, standard, or verbose :contentReference[oaicite:4]{index=4}
