@@ -60,17 +60,38 @@
         <div class="description">As night fell, the little boy curled up in bed with his new kitten snuggled close. With his blanket in hand and pacifier in place, he drifted off into dreams, the soft purring of his furry friend keeping him safe and warm through the night.</div>
       </div>
 
+  <div class="dots" id="dots"></div>
   </div>
 
   <div class="nav">
     <button id="prev">←</button>
     <button id="next">→</button>
   </div>
+  <div class="dots" id="dots"></div>
 
   <script>
     const carousel = document.getElementById('carousel');
     const next = document.getElementById('next');
     const prev = document.getElementById('prev');
+    const dotsContainer = document.getElementById('dots');
+    const stories = document.querySelectorAll('.story');
+    const dots = [];
+
+    stories.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.classList.add('dot');
+      if (idx === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        carousel.scrollTo({ left: window.innerWidth * idx, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+
+    carousel.addEventListener('scroll', () => {
+      const idx = Math.round(carousel.scrollLeft / window.innerWidth);
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+    });
 
     next.addEventListener('click', () => {
       carousel.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
