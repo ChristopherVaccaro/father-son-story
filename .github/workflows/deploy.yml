@@ -9,22 +9,15 @@ jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1. Grab your code
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Upload via FTP
       - name: FTP Deploy to GoDaddy
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5   # ← pin a real tag
         with:
-          server: ${{ secrets.FTP_HOST }}       # e.g. ftp.yourdomain.com
+          server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Path in your repo containing your HTML/CSS. Default is root.
-          local-dir: ./                         
-
-          # Remote path on GoDaddy; adjust if your docs root is e.g. /public_html
-          remote-dir: /public_html              
-
-          # Sometimes GoDaddy’s FTP is finicky; --insecure relaxes strict TLS.
-          git-ftp-args: --insecure               
+          local-dir: ./                             # adjust if your build output lives elsewhere
+          remote-dir: /public_html                  # adjust your web‑root path
+          git-ftp-args: --insecure                  # optional: relax TLS if GoDaddy FTPS is picky
