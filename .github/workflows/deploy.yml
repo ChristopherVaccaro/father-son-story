@@ -17,10 +17,18 @@ jobs:
       - name: FTP Deploy to GoDaddy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-        server:   ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ftps
-        security: loose
-        local-dir: ./                 # assuming your HTML/CSS lives in root of repo
-        server-dir: public_html/projects/
+          server:   ${{ secrets.FTP_HOST }}       # e.g. ftp.yourdomain.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          # — optional but recommended for GoDaddy FTPS:
+          protocol: ftps                         # ftp, ftps, or ftps-legacy :contentReference[oaicite:0]{index=0}
+          port:     21                           # default is 21; change if your host uses custom port :contentReference[oaicite:1]{index=1}
+          security: loose                        # “strict” (default) or “loose” to accept self‑signed/hostname‑mismatched certs :contentReference[oaicite:2]{index=2}
+
+          # — what to upload and where
+          local-dir:  ./                         # your site root in the repo
+          server-dir: public_html/projects/               # GoDaddy’s webroot; must end with a slash :contentReference[oaicite:3]{index=3}
+
+          # — debugging
+          log-level: standard                    # minimal, standard, or verbose :contentReference[oaicite:4]{index=4}
