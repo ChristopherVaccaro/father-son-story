@@ -95,16 +95,19 @@ body {
 /* Site header styles */
 .site-header {
   text-align: center;
-  padding: 2rem 1rem;
+  /* More compact header padding */
+  padding: 1rem 1rem;
   background-color: var(--header-bg);
   border-bottom: 1px solid #e0e0e0;
 }
 .site-header h1 {
   font-family: 'Roboto Slab', serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  /* Slightly smaller title for compact header */
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
 }
 .site-header .subtitle {
-  font-size: 1.125rem;
+  /* Reduce subtitle font size for compact header */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
