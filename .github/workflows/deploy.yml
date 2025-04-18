@@ -17,12 +17,12 @@ jobs:
     # Step 2: Set up FTP deployment
     - name: Deploy to GoDaddy via FTP
       run: |
-        apt-get install lftp  # Install lftp tool to use FTP
+        sudo apt-get update  # Update package lists
+        sudo apt-get install lftp  # Install lftp tool to use FTP
         lftp -f "
           open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}
           lcd ./ # Local directory (current repo folder)
-          cd ${{ secrets.REMOTE_DIR }} # Remote directory (e.g., public_html)
+          cd ${{ secrets.REMOTE_DIR }} # Remote directory (where your website files are stored)
           mirror -R --delete --verbose ./ ./
           bye
         "
-
