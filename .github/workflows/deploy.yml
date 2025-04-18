@@ -20,6 +20,7 @@ jobs:
         sudo apt-get update  # Update package lists
         sudo apt-get install lftp  # Install lftp tool to use FTP
         lftp -f "
+          set ftp:ssl-allow no # Disable SSL verification
           open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}
           lcd ./ # Local directory (current repo folder)
           cd ${{ secrets.REMOTE_DIR }} # Remote directory (where your website files are stored)
